@@ -12,9 +12,13 @@ const app = express();
 const __dirname = path.resolve();
 
 app.use(express.json());
-app.use(cors({origin:ENV.CLIENT_URL, credentials:true}));
+app.use(cors({origin:ENV.CLIENT_URL, credentials:true}));   // credentials:true allows cookies to be sent
 
 app.use("/api/inngest", serve({client: inngest, functions}));
+
+app.get("/books", (req, res) => {
+  res.status(200).json({ message: "Server is running" });
+});
 
 if (ENV.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "../frontend/dist")));
@@ -24,9 +28,6 @@ if (ENV.NODE_ENV === "production") {
   });
 }
 
-app.get("/", (req, res) => {
-  res.status(200).json({ message: "Server is running" });
-});
 
 const startServer = async () => {
   try {

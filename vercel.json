@@ -1,12 +1,22 @@
 {
-    "routes": [
+    "version": 2,
+    "functions": {
+        "backend/src/server.js": {
+            "runtime": "@vercel/node"
+        }
+    },
+    "rewrites": [
         {
-            "src": "/api/inngest",
-            "dest": "backend/src/server.js"
+            "source": "/api/inngest",
+            "destination": "/backend/src/server.js"
         },
         {
-            "src": "/api/(.*)",
-            "dest": "backend/src/server.js"
+            "source": "/api/(.*)",
+            "destination": "/backend/src/server.js"
+        },
+        {
+            "source": "/(.*)",
+            "destination": "/frontend/dist/index.html"
         }
     ]
 }

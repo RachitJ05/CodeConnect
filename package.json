@@ -18,5 +18,9 @@
   "bugs": {
     "url": "https://github.com/RachitJ05/CodeConnect/issues"
   },
-  "homepage": "https://github.com/RachitJ05/CodeConnect#readme"
+  "homepage": "https://github.com/RachitJ05/CodeConnect#readme",
+  "dependencies": {
+    "express": "^5.2.1",
+    "inngest": "^3.49.3"
+  }
 }

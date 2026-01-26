@@ -20,7 +20,10 @@
   },
   "homepage": "https://github.com/RachitJ05/CodeConnect#readme",
   "dependencies": {
+    "cors": "^2.8.6",
     "express": "^5.2.1",
-    "inngest": "^3.49.3"
+    "inngest": "^3.49.3",
+    "mongoose": "^9.1.5",
+    "path": "^0.12.7"
   }
 }

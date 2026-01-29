@@ -16,7 +16,9 @@ function OutputPanel({ output }) {
                                 {output.output}
                             </pre>
                         )}
-                        <pre className="text-sm font-mono text-error whitespace-pre-wrap">{output.error}</pre>
+                        {output.error && (
+                            <pre className="text-sm font-mono text-error whitespace-pre-wrap">{output.error}</pre>
+                        )}
                     </div>
                 )}
             </div>

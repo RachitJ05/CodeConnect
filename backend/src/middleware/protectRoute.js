@@ -1,11 +1,10 @@
-import { requireAuth } from '@clerk/express';
+import { getAuth } from '@clerk/express';
 import User from '../models/User.js';
 
-export const protectRoute = [
-    requireAuth(),
+export const protectRoute = 
     async (req, res, next) => {
         try {
-            const clerkId = req.auth().userId;
+            const {userId: clerkId} = getAuth(req);
 
             if(!clerkId) return res.status(401).json({ message: "Unauthorized" });
 
@@ -20,4 +19,3 @@ export const protectRoute = [
             res.status(500).json({ message: "Internal Server error" });
         }
     }
-]

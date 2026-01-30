@@ -14,7 +14,7 @@ const app = express();
 app.use(express.json());
 app.use(cors({
   origin:ENV.CLIENT_URL, 
-  credentials: true,    // credentials:true allows cookies to be sent
+  // credentials: true,    // credentials:true allows cookies to be sent
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type", "Authorization"]
 }));   

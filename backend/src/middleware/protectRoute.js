@@ -1,23 +1,15 @@
-import { clerkClient } from "@clerk/express";
+import { getAuth } from "@clerk/express";
 import User from "../models/User.js";
 
 export const protectRoute = async (req, res, next) => {
     try {
-        const authHeader = req.headers.authorization;
+        const { userId } = getAuth(req);
 
-        if (!authHeader || !authHeader.startsWith("Bearer ")) {
-            return res.status(401).json({ message: "Missing or invalid token" });
+        if (!userId) {
+            return res.status(401).json({ message: "Unauthorized" });
         }
 
-        const token = authHeader.replace("Bearer", "").trim();
-
-        const { sub } = await clerkClient.verifyToken(token);
-
-        if (!sub) {
-            return res.status(401).json({ message: "Invalid token payload" });
-        }
-
-        const user = await User.findOne({ clerkId: sub });
+        const user = await User.findOne({ clerkId: userId });
 
         if (!user) {
             return res.status(404).json({ message: "User not found" });
@@ -27,6 +19,6 @@ export const protectRoute = async (req, res, next) => {
         next();
     } catch (err) {
         console.error("Auth error:", err);
-        return res.status(401).json({ message: "Invalid or expired token" });
+        return res.status(401).json({ message: "Unauthorized" });
     }
 };

@@ -6,7 +6,7 @@ CodeConnect is a real-time collaborative coding platform that enables multiple u
 
 ## 🔗 Live Demo
 
-🔗 code-connect-theta-eight.vercel.app/
+🔗 https://code-connect-theta-eight.vercel.app/
 
 ---
 

@@ -12,7 +12,12 @@ import sessionRoutes from "./routes/sessionRoutes.js";
 const app = express();
 
 app.use(express.json());
-app.use(cors({origin:ENV.CLIENT_URL, credentials:true}));   // credentials:true allows cookies to be sent
+app.use(cors({
+  origin:ENV.CLIENT_URL, 
+  credentials: true,    // credentials:true allows cookies to be sent
+  methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
+  allowedHeaders: ["Content-Type", "Authorization"]
+}));   
 app.use(clerkMiddleware());   // this add auth field to to request object: req.auth()
 
 app.use("/api/inngest", serve({client: inngest, functions}));

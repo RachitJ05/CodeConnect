@@ -5,13 +5,17 @@ export const protectRoute = async (req, res, next) => {
     try {
         const authHeader = req.headers.authorization;
 
-        if (!authHeader?.startsWith("Bearer ")) {
-            return res.status(401).json({ message: "Missing token" });
+        if (!authHeader || !authHeader.startsWith("Bearer ")) {
+            return res.status(401).json({ message: "Missing or invalid token" });
         }
 
-        const token = authHeader.split(" ")[1];
+        const token = authHeader.replace("Bearer", "").trim();
 
         const { sub } = await clerkClient.verifyToken(token);
+
+        if (!sub) {
+            return res.status(401).json({ message: "Invalid token payload" });
+        }
 
         const user = await User.findOne({ clerkId: sub });
 
@@ -22,6 +26,7 @@ export const protectRoute = async (req, res, next) => {
         req.user = user;
         next();
     } catch (err) {
-        return res.status(401).json({ message: "Invalid token" });
+        console.error("Auth error:", err);
+        return res.status(401).json({ message: "Invalid or expired token" });
     }
 };

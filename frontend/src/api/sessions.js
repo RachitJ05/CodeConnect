@@ -1,9 +1,7 @@
-import axios from "axios";
+import axiosInstance from "../lib/axios";
 import { useAuth } from "@clerk/clerk-react";
 
-const api = axios.create({
-    baseURL: import.meta.env.VITE_BACKEND_URL,
-});
+const api = axiosInstance;
 
 export const useSessionApi = () => {
     const { getToken } = useAuth();

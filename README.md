@@ -10,6 +10,10 @@ CodeConnect is a real-time collaborative coding platform that enables multiple u
 
 ---
 
+![Problems](frontend/public/Screenshot1_README.png)
+![Dashboard](frontend/public/Screenshot2_README.png)
+![Session](frontend/public/Screenshot3_README.png)
+
 ## 🚀 Features
 
 - 🧠 VSCode-powered code editor  

@@ -30,7 +30,7 @@ CodeConnect is a real-time collaborative coding platform that enables multiple u
 - 📡 Efficient REST API with Node.js & Express  
 - 🧩 Data fetching & caching via TanStack Query  
 - ⚙️ Code review suggestions using CodeRabbit  
-- 📦 Deployable on Vercel
+- 📦 Deployed on Vercel
 
 ---
 

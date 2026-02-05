@@ -123,7 +123,6 @@ npm install
 
 ```env
 PORT=3000
-NODE_ENV=development
 
 DB_URL=your_mongodb_connection_url
 

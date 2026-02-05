@@ -30,7 +30,7 @@ CodeConnect is a real-time collaborative coding platform that enables multiple u
 - 📡 Efficient REST API with Node.js & Express  
 - 🧩 Data fetching & caching via TanStack Query  
 - ⚙️ Code review suggestions using CodeRabbit  
-- 📦 Deployable on Vercel
+- 📦 Deployed on Vercel
 
 ---
 
@@ -39,9 +39,12 @@ CodeConnect is a real-time collaborative coding platform that enables multiple u
 ### 🖥️ Frontend
 - React  
 - Vite  
-- Tailwind CSS  
-- Clerk for authentication  
+- Tailwind CSS
+- Axios
+- Lucide Icons
+- React Hot Toast
 - React Router  
+- Clerk for authentication  
 - TanStack Query  
 - Stream for video calls and chat messaging
 - VSCode editor integration
